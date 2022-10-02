@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <script src="/bootstrap.min.js" defer></script>
+    <script src="/Lists/Todo List/script.js" defer></script>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/Lists/Todo List/style.css">
+</head>
+
+<body>
+
+    <!-- Input Section Start  -->
+
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Launch static backdrop modal
+    </button> -->
+
+    <!-- Modal -->
+    <form class="modal fade form" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add New Task</h5>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    <label for="name">Task-Name :</label><br>
+                    <input type="text" name="name" id="name" class="form-control task-name">
+                    <span class="error-message"></span>
+                    <br>
+                    <label for="date">Due-Date :</label><br>
+                    <input type="date" name="date" id="date" class="form-control task-date">
+                    <!-- <span class="error-message"></span> -->
+                    <br>
+                    <label for="details">Task-Description :</label><br>
+                    <textarea name="details" id="details" cols="30" rows="5"
+                        class="form-control task-details"></textarea>
+                    <!-- <span class="error-message"></span> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+    <!-- Input Section End  -->
+
+    <!-- Output section Start -->
+    <div class="list-container" id="output-data">
+        <h1 class="text-center mt-4 fw-bolder text-success  main-heading">Todo List</h1>
+        <hr>
+        <button class="add-task-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Task</button>
+        <hr>
+        <div class="final-task">
+         
+        </div>
+      
+    </div>
+    </div>
+
+    <!-- Output section End -->
+
+
+</body>
+
+</html>

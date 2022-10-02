@@ -1,0 +1,184 @@
+*,::after,::before{
+    margin: 0;padding: 0;box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: serif;
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* ################## Input Section Start ###############  */
+form label{
+    font-size: 1.5rem;
+}
+.task-name{
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
+}
+.task-details{
+    letter-spacing:0.03em;
+    font-size: 1.4rem;
+}
+.error-message{
+    color: red;
+    font-size: 1.2rem;
+}
+/* ################## Input Section End ###############  */
+
+/* ################## Output Section start ##################### 
+ */
+.add-task-btn{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    cursor: pointer;
+    background-color: #008000b8;
+    text-align: center;
+    color: #fff;
+    box-shadow:1px 2.4px 4px rgba(0, 0, 0, 0.226);
+}
+.list-container{
+    max-width: 55%;
+    width: 40%;
+    margin: auto;
+    height:70vh;
+    border: 4px solid #0000ffaa;
+    background-color: #00800058;
+    border-radius: 8px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 3em;
+    overflow: scroll;
+}
+.list-container::-webkit-scrollbar{
+    width: 0 !important;
+}
+.main-heading{
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.output{
+    border: 3px solid green;
+    border-radius: 6px;
+    background: #0000ff2b;
+    padding: 1.5em 5em;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.261);
+}
+.output label{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #000000b4;
+    color: rgba(0, 0, 255, 0.781);
+}
+.output .task-name,.task-description,.task-date{
+    font-size: 1.6rem;
+    margin-top: 0em;
+}
+.output .buttons{
+    /* border: 1px solid black; */
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttons button{
+    padding: 0.5em 1.4em;
+    width: fit-content;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #008000b8;
+    color: #fff;
+    font-size: 1.3rem;
+    display: inline-block;
+    letter-spacing:0.02em;
+    transition: all 0.3s ease-in-out;
+}
+.buttons button:hover{
+    background-color: rgba(0, 0, 255, 0.402);
+    /* border: blue 1.5px solid; */
+    /* color: #000; */
+}
+
+/* Out Area end  */
+
+/* Input Area Start  */
+
+@media (max-width:980px){
+    .output{
+        padding: 1.5em;
+    }
+    .buttons button{
+        padding: 0.3em 0.6em;
+    }
+}
+
+@media (max-width:768px){
+    .list-container{
+        width:100%;
+    }
+    .output .buttons{
+        flex-direction: column;
+    }
+    .buttons button{
+        margin-bottom: 1.3em;
+        width: 100%;
+    }
+    .output{
+        padding:1.2em;
+    }
+}
+@media (max-width:480px){
+    .list-container{
+        max-width: 90%;
+        width: 70%;
+    }
+    .main-heading{
+        font-size: 1.8rem;
+    }
+    button{
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .list-container{
+        padding: 1em;
+    }
+    .output{
+        padding: 0.2em;
+    }
+    .output label{
+        font-size: 1.3rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
