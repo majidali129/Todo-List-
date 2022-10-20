@@ -18,7 +18,7 @@ function validateForm() {
     if (name.value == "") {
         document.querySelector(".error-message").innerHTML = "Field can't be empty";
     } else {
-        acceptStoreData()
+        // acceptStoreData()
         clearFields()
         // console.log(data)
         document.querySelector(".error-message").innerHTML = "";
@@ -34,6 +34,7 @@ function validateForm() {
 }
 // ####### Clear Fields ########## 
 function clearFields() {
+    acceptStoreData()
     name.value = "";
     date.value = "";
     details.value = "";
@@ -50,6 +51,10 @@ function clearFields() {
 
 let data = [];
 function acceptStoreData() {
+    // console.log(data)
+    let name = document.getElementById("name"),
+    date = document.getElementById("date"),
+    details = document.getElementById("details");
     data.push({
         task: name.value,
         dueDate: date.value,
@@ -64,41 +69,38 @@ function acceptStoreData() {
 // ############## add task to list ############ 
 function add() {
     let finalOutput = document.querySelector(".final-task");
-    console.log(finalOutput)
+    // console.log(finalOutput)
 
     finalOutput.innerHTML = "";
-    if(data.length==0){
+    if(data.length>0){
+        data.map((element,index)=>{
+         let finalOutput = document.querySelector(".final-task");
+          return finalOutput.innerHTML += `
+         <div class="output mb-3" id=${index}>
+     
+          <label for="">Name :</label> 
+         <div class="task-name" id="task-name">${element.task}</div> 
+     <label for="">Date :</label> 
+     <div class="task_date" id="task-date">${element.dueDate}</div> 
+      <label for="">Description :</label>  
+     <div class="task-description" id="task-description">${element.taskDetails} </div> 
+     <br>
+     <div class="buttons">
+         <button class="edit-task" id="edit-btn"
+         onclick="updateTask(this)" data-bs-target="#staticBackdrop" data-bs-toggle="modal" >Edit Task</button>
+         <button class="remove-task" id="delete-btn"
+          onclick="deleteTask(this)">Delete Task</button>
+     </div>
+     </div> `
+     
+        })
+    }else{
         alert("Nothing to show")
     }
-   data.map((element,index)=>{
-     return finalOutput.innerHTML += `
-    <div class="output mb-3" id=${index}>
-
-     <label for="">Name :</label> 
-    <div class="task-name" id="task-name">${element.task}</div> 
-<label for="">Date :</label> 
-<div class="task_date" id="task-date">${element.dueDate}</div> 
- <label for="">Description :</label>  
-<div class="task-description" id="task-description">${element.taskDetails} </div> 
-<br>
-<div class="buttons">
-    <button class="edit-task" id="edit-btn"
-    onclick="updateTask(this)" data-bs-target="#staticBackdrop" data-bs-toggle="modal" >Edit Task</button>
-    <button class="remove-task" id="delete-btn"
-     onclick="deleteTask(this)">Delete Task</button>
-</div>
-</div> `
-
-   })
+   console.log(data)
 
 }
 
-// ######## Delete task ####### 
-function deleteTask(e) {
-    e.parentElement.parentElement.remove();
-    data.splice(e.parentElement.parentElement.index,1);
-    localStorage.setItem("data",JSON.stringify(data));
-}
 // ####### Edit/ Update Task ######### 
 function updateTask(e) {
     document.getElementById("name").value = e.parentElement.parentElement.children[1].innerHTML
@@ -106,11 +108,16 @@ function updateTask(e) {
     document.getElementById("details").value = e.parentElement.parentElement.children[5].innerHTML
     deleteTask(e);
 }
+// ######## Delete task ####### 
+function deleteTask(e) {
+    e.parentElement.parentElement.remove();
+    data.splice(e.parentElement.parentElement.index,1);
+    localStorage.setItem("data",JSON.stringify(data));
+}
 
 (
     (()=>{
         data = JSON.parse(localStorage.getItem("data"));
-        console.log(data)
         add()
     })
 )()
